@@ -1,0 +1,56 @@
+Weather App Documentation
+
+Overview
+The Weather App is a simple web application built using Flask, a Python web framework. It allows users to search for weather information based on a city name and displays relevant details such as temperature, weather description, and more.
+
+Components
+1. app.py
+This is the main file that runs the Flask application. It handles user requests, interacts with the weather module, and renders the HTML templates.
+
+Routes
+/: Renders the home page where users can input the city, state, and country to search for weather information.
+Functions
+home(): Handles both GET and POST requests. Renders the home page and processes form submissions to fetch weather data.
+2. weather.py
+This module contains functions to interact with the OpenWeatherMap API and retrieve weather information.
+
+Classes
+WeatherData: Represents a data structure for storing weather information, including city, state, country, date and time, main weather condition, description, icon, and temperature.
+Functions
+get_lan_lon(city_name, state_code, country_code, api_key): Retrieves the latitude and longitude of a location using the OpenWeatherMap GeoCoding API.
+
+get_current_weather(lat, lon, API_KEY): Retrieves current weather information for a location using the OpenWeatherMap Current Weather Data API.
+
+main(city_name, state_name, country_name): Orchestrates the retrieval of weather information for a specified location.
+
+3. index.html
+This HTML file defines the structure of the home page. It includes a form for users to input the city, state, and country, and displays weather information.
+
+Components
+Form: Allows users to input the city, state, and country.
+Display Section: Shows weather information, including city, state, country, date and time, main weather condition, description, icon, and temperature.
+Setup and Usage
+Clone the Repository: Clone the Weather App repository to your local machine.
+bash
+Copy code
+git clone https://github.com/your_username/weather-app.git
+cd weather-app
+Set up Virtual Environment: Create a virtual environment and install the required dependencies.
+bash
+Copy code
+python -m venv virtualenv
+source virtualenv/bin/activate  # On Windows: .\virtualenv\Scripts\activate
+pip install -r requirements.txt
+Set API Key: Obtain an API key from OpenWeatherMap and set it as an environment variable.
+bash
+Copy code
+export API_KEY=your_openweathermap_api_key
+Run the Application:
+bash
+Copy code
+python app.py
+Visit http://localhost:5000 in your web browser to use the Weather App.
+
+Notes
+The app supports searching by city name only. State and country inputs are optional.
+Styling and UI elements can be customized in the index.html file.
